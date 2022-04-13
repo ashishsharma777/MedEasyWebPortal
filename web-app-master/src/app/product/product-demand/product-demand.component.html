@@ -1,0 +1,71 @@
+<h1>Product Demand Form</h1>
+
+<div class="container">
+  <form>
+    <label>Stock User:</label>
+    <input type="text" name="stockUserName"  class="form-control" [(ngModel)]="demand.stockUserName"/>
+    <label>Date:</label>
+    <input type="date" name="date" class="form-control" [(ngModel)]="demand.date"/>
+    <br>
+  </form>
+  <button class="btn-primary" (click)="addRow()">Add Row</button>
+</div>
+<div class="grid">
+  <ag-grid-angular
+    style="width: 70%; height: 300px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [enableSorting]="true"
+    [multiSortKey]="multiSortKey"
+    [animateRows]="true"
+    [enableFilter]="true"
+    [enableCellChangeFlash]="true"
+    (gridReady)="onGridReady($event)"
+    [gridOptions]="gridOptions"
+    [singleClickEdit]="true"
+    [pagination]="true"
+    [paginationAutoPageSize]="true"
+  >
+  </ag-grid-angular>
+</div>
+
+<button class="btn-primary btn-sm" (click)="insert()">Submit</button>
+<!--(cellValueChanged)="onChange($event)"-->
+<!--<form [formGroup]="reactiveForm">
+      <table border="1px">
+        <tr>
+          <th>S.No.</th>
+          <th>Product Type</th>
+          <th>Product Name</th>
+          <th>Specification</th>
+          <th>Unit</th>
+          <th>Quantity</th>
+        </tr>
+        <tr>
+          <div formArrayName="products">
+            <div *ngFor="let group of productsArray.controls; let i=index;" [formGroupName]="i">
+              <td>{{i+1}}</td>
+              <td><select formControlName="productType" class="form-control" [(ngModel)]="product.productType"
+                          (change)="onSelectProductType($event)">
+                <option selected *ngFor="let prodType of types" [ngValue]=prodType>{{prodType.type}}</option>
+              </select>
+              </td>
+              <td><select formControlName="name" class="form-control" [(ngModel)]="product.name"
+                          (change)="onSelectProductName($event)">
+                <option selected *ngFor="let prodName of products" [ngValue]=prodName.name>{{prodName.name}}</option>
+              </select>
+              </td>
+              <td><input type="text" formControlName="specification" class="form-control" [(ngModel)]="product.specification">
+              </td>
+              <td><select formControlName="unit" class="form-control" [(ngModel)]="product.unit">
+                <option selected *ngFor="let prodUnit of products" [ngValue]="prodUnit.unit">{{prodUnit.unit}}
+                </option></select></td>
+            </div>
+          </div>
+          <td><input type="number" formControlName="quantity" class="form-control" [(ngModel)]="demand.quantity"></td>
+          <td><button class="btn-danger btn-sm" (click)="deleteRow(index)">X</button></td>
+        </tr>
+      </table>
+    </form>-->
+

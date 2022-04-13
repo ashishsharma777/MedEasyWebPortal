@@ -1,0 +1,42 @@
+<h1>Product Requisition Form</h1>
+
+<div class="container">
+  <form>
+    <label>Employee Name:</label>
+    <input type="text" name="employeeName" class="form-control mr-sm-1" [(ngModel)]="requisition.employeeName">
+
+    <label>Designation:</label>
+    <input type="text" name="designation" class="form-control mr-sm-1" [(ngModel)]="requisition.designation">
+
+    <label>Department Name:</label>
+    <input type="text" name="departmentName" class="form-control mr-sm-1" [(ngModel)]="requisition.departmentName">
+
+    <label>Purpose:</label>
+    <input type="text" name="purpose" class="form-control mr-sm-1" [(ngModel)]="requisition.purpose">
+
+    <label>Date:</label>
+    <input type="date" name="date" class="form-control mr-sm-1" [(ngModel)]="requisition.date">
+  </form>
+  <button class="btn-success btn-sm" (click)="addRow()">Add Row</button>
+</div>
+<div class="grid">
+  <ag-grid-angular
+    style="width: 70%; height: 300px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [enableSorting]="true"
+    [multiSortKey]="multiSortKey"
+    [animateRows]="true"
+    [enableFilter]="true"
+    [enableCellChangeFlash]="true"
+    (gridReady)="onGridReady($event)"
+    (cellValueChanged)="onChange($event)"
+    [singleClickEdit]="true"
+    [pagination]="true"
+    [paginationAutoPageSize]="true"
+  >
+  </ag-grid-angular>
+</div>
+
+<button class="btn btn-primary"  (click)="insert()">Submit</button>

@@ -1,0 +1,125 @@
+<div *ngIf="data.state=='writeReason'">
+<h1 mat-dialog-title>Reason?</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.reason" autocomplete="off">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.reason" cdkFocusInitial >Ok</button>
+</div>
+</div>
+
+<div *ngIf="data.state=='displayReason'">
+  <h1 mat-dialog-title>Reason:</h1>
+  <div mat-dialog-content>
+    {{data.reason}}
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data.reason" cdkFocusInitial>Ok</button>
+  </div>
+</div>
+
+<div *ngIf="data.state=='addProducts'">
+  <h1 mat-dialog-title>Add Products:</h1>
+  <div mat-dialog-content>
+    <form>
+      <label>Product Type:</label>
+      <select type="text" class="form-control-sm" [(ngModel)]="data.productType" [ngModelOptions]="{standalone: true}"></select>
+      <br>
+      <label>Product Name:</label>
+      <input type="text" class="form-control-sm" [(ngModel)]="data.productName" [ngModelOptions]="{standalone: true}">
+      <br>
+      <label>Specification:</label>
+      <input type="text" class="form-control-sm" [(ngModel)]="data.specification" [ngModelOptions]="{standalone: true}">
+      <br>
+      <label>Unit:</label>
+      <input type="text" class="form-control-sm" [(ngModel)]="data.unit" [ngModelOptions]="{standalone: true}">
+    </form>
+  </div>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Back</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  </mat-dialog-actions>
+</div>
+
+<div *ngIf="data.state=='displayProducts'">
+  <h1 mat-dialog-title>Products:</h1>
+  <div mat-dialog-content>
+    <table border="2px">
+      <tr>
+        <th>Product Type</th>
+        <th>Product Name</th>
+        <th>Specification</th>
+        <th>Unit</th>
+        <th>Quantity</th>
+      </tr>
+      <tr *ngFor="let prod of data.demands">
+        <td>{{prod.productType.id}}</td>
+        <td>{{prod.name}}</td>
+        <td>{{prod.specification}}</td>
+        <td>{{prod.unit}}</td>
+        <td>{{prod.quantity}}</td>
+      </tr>
+    </table>
+  </div>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Ok</button>
+  </mat-dialog-actions>
+</div>
+
+<div *ngIf="data.state=='displayProduct'">
+  <h1 mat-dialog-title>Products:</h1>
+  <div mat-dialog-content>
+    <table border="2px">
+      <tr>
+        <th>Product Type</th>
+        <th>Product Name</th>
+        <th>Specification</th>
+        <th>Unit</th>
+        <th>Quantity</th>
+      </tr>
+      <tr *ngFor="let prod of data.requisitions">
+        <td>{{prod.productType}}</td>
+        <td>{{prod.name}}</td>
+        <td>{{prod.specification}}</td>
+        <td>{{prod.unit}}</td>
+        <td>{{prod.quantity}}</td>
+      </tr>
+    </table>
+  </div>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Ok</button>
+  </mat-dialog-actions>
+</div>
+
+<!--<div *ngIf="data.state=='addProductType'">-->
+  <!--<h1 mat-dialog-title>Product Type:</h1>-->
+  <!--<div mat-dialog-content>-->
+    <!--<mat-form-field>-->
+      <!--<input matInput [(ngModel)]="data.productType.type" autocomplete="off">-->
+    <!--</mat-form-field>-->
+  <!--</div>-->
+  <!--<div mat-dialog-actions>-->
+    <!--<button mat-button (click)="onNoClick()">No Thanks</button>-->
+    <!--<button mat-button [mat-dialog-close]="data.productType.type" (click)="insert()">Ok</button>-->
+    <!--&lt;!&ndash;<button mat-button [mat-dialog-close]="data.productType" cdkFocusInitial >Ok</button>&ndash;&gt;-->
+  <!--</div>-->
+<!--</div>-->
+
+<div *ngIf="data.state=='addUnit'">
+  <h1 mat-dialog-title>Unit:</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.unit" autocomplete="off">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.unit" cdkFocusInitial >Ok</button>
+  </div>
+</div>
+
+
+

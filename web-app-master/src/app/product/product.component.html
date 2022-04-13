@@ -1,0 +1,30 @@
+<h1>Add Products</h1>
+
+<div class="container">
+  <form #productForm="ngForm">
+
+    <a class="btn-secondary btn-sm"
+    [routerLink]="['/',{ outlets: { productTypePopup: ['product-type']}}]" (click)="openType()">Add</a>&nbsp;
+    <label>Product Type:</label>
+
+    <select class="form-control mr-sm-4" name="productType" [(ngModel)]="product.productType">
+      <option selected *ngFor="let prodType of types" [ngValue]=prodType>{{prodType.type}}</option>
+    </select>
+
+    <label>Product Name:</label>
+    <input type="text" name="name" class="form-control mr-sm-4" [(ngModel)]="product.name">
+
+    <label>Specification:</label>
+    <input type="text" name="specification" class="form-control mr-sm-4" [(ngModel)]="product.specification">
+
+    <a class="btn-secondary btn-sm"
+       [routerLink]="['/',{ outlets: { productUnitPopup: ['product-unit']}}]" (click)="openUnit()">Add</a>&nbsp;
+    <label>Unit:</label>
+
+    <select name="productUnit" class="form-control mr-sm-4" [(ngModel)]="product.productUnit">
+      <option selected *ngFor="let prodUnit of units" [ngValue]=prodUnit>{{prodUnit.unit}}</option>
+    </select>
+    <br>
+    <button class="btn-primary" (click)="insert()">Insert</button>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<h1>Product Purchase Form</h1>
+
+<div class="container">
+  <form>
+    <label>Vendor Name:</label>
+    <input type="text" class="form-control" name="vendorName" [(ngModel)]="purchase.vendorName">
+    <label>Date:</label>
+    <input type="date" name="date" class="form-control" [(ngModel)]="purchase.date"/>
+    <br>
+  </form>
+</div>
+<div class="grid">
+  <ag-grid-angular
+    style="width: 70%; height: 300px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [enableSorting]="true"
+    [multiSortKey]="multiSortKey"
+    [animateRows]="true"
+    [enableFilter]="true"
+    (gridReady)="onGridReady($event)"
+    [pagination]="true"
+    [paginationAutoPageSize]="true"
+  >
+  </ag-grid-angular>
+</div>
+
+<button class="btn btn-primary" (click)="insert()">Submit</button>
+
+<!--<label>Products:</label>
+    <button class="btn-primary" (click)="view()" ng-click="isSelected = true; purchase.products = true">
+    View Products</button>-->

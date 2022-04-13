@@ -1,0 +1,19 @@
+<h1>Products List:</h1>
+<div class="grid">
+  <ag-grid-angular
+    style="width: 50%; height: 500px;"
+    class="ag-theme-balham"
+    [rowData]="demands"
+    [columnDefs]="columnDefs"
+
+    [enableSorting]="true"
+    [multiSortKey]="multiSortKey"
+    [animateRows]="true"
+
+    [enableFilter]="true"
+    (gridReady)="onGridReady($event)"
+    [pagination]="true"
+    [paginationAutoPageSize]="true"
+  >
+  </ag-grid-angular>
+</div>

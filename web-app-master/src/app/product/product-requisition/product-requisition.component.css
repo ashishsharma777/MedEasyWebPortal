@@ -1,0 +1,17 @@
+h1{
+  text-align: center;
+  padding-top: 0.5%;
+}
+.container{
+  text-align: left;
+  width: 50%;
+}
+button{
+  padding-top: 1px;
+}
+.grid{
+  display: flex;
+  justify-content: center;
+}
+
+

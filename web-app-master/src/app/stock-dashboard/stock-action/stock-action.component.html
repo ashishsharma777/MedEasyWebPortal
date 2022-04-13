@@ -1,0 +1,3 @@
+<button class="btn btn-primary btn-sm" (click)="forward(requisition)">Forward</button>&nbsp;
+<a routerLink="/demand" class="btn btn-danger btn-sm">Deny</a>&nbsp;
+<button class="btn btn-info btn-sm" (click)="openReason()" *ngIf="requisition.status=='Access Denied'"> Reason</button>
